@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\TaeFreeze\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\TaeFreeze\\.nuget\\packages"
+    ]
+  }
+}
