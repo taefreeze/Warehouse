@@ -50,13 +50,13 @@
                         Log in
                     </span>
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter email">
-                        <input class="input100" type="text" name="username" placeholder="กรุณากรอก อีเมล" asp-for="Input.Email">
+                    <div class="wrap-input100 validate-input" data-validate="email">
+                        <input class="input100" placeholder="กรุณากรอก อีเมล" asp-for="Input.Email">
                         <span class="focus-input100" asp-validation-for="Input.Email"></span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter password">
-                        <input class="input100" type="password" name="pass" placeholder="กรุณากรอก รหัสผ่าน" asp-for="Input.Password">
+                    <div class="wrap-input100 validate-input" data-validate="password">
+                        <input class="input100" placeholder="กรุณากรอก รหัสผ่าน" asp-for="Input.Password">
                         <span class="focus-input100" asp-validation-for="Input.Password"></span>
                     </div>
 
