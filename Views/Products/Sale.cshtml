@@ -1,0 +1,47 @@
+﻿@model  SaleViewModel
+
+@{
+	ViewData["Title"]="บันทึกยอดขาย" ;
+	var products=(List<Product>)ViewData["Products"];
+	var orders=(List<Order>)ViewData["orders"];
+}
+
+@if (ViewData["Success"] != null && (bool)ViewData["Success"])
+{
+	// boostrap alert success
+}
+else if (ViewData["Success"] != null && !(bool)ViewData["Success"])
+{
+	// bootstrap alert warning
+}
+
+<form asp-controller="Products" asp-action="Sale" method="post">
+	<input type="hidden" asp-for="OrderId" value="@ViewData["OrderID"]" />
+	<div class="form-group row">
+		<label for="select1" class="col-4 col-form-label">เลือกสินค้า :</label>
+		<div class="col-6">
+			<select asp-for="ProductId" class="custom-select">
+				@foreach (var item in products)
+				{
+					<option value="@(item.ProductId)">@(item.Product_Name)</option>
+				}
+			</select>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="textarea" class="col-4 col-form-label">จำนวนที่ขาย :</label>
+		<div class="col-6">
+			<input type="number" asp-for="Amount" class="form-control" />
+		</div>
+
+	</div>
+	<div class="form-group row">
+		<div class="offset-4 col-8">
+			<button name="submit" type="submit" class="btn btn-primary">Submit</button>
+		</div>
+	</div>
+</form>
+	@section Scripts {
+		@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	}
+

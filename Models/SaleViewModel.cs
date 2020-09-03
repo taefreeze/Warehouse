@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EFwarehouse.Models
+namespace Warehouse.Models
 {
 	public class SaleViewModel
 	{

@@ -1,0 +1,46 @@
+﻿@model EFwarehouse.Models.Order
+
+@{
+	ViewData["Title"] = "รายการขาย";
+}
+
+<div>
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.ProductId)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.ProductId)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Date)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Date)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Price)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Price)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Quantity_O)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Quantity_O)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Total_Price)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Total_Price)
+		</dd>
+	</dl>
+
+	<form>
+		<a asp-action="Sale">ทำรายการต่อ</a> | 
+		<a asp-action="Index">ไปยังหน้าหลัก</a>
+	</form>
+</div>
+
