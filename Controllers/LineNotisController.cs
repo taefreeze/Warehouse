@@ -18,42 +18,42 @@ namespace Warehouse.Controllers
 			return Authentication();
 		}
 
-        [HttpPost]
-        public IActionResult Authentication()
+		[HttpPost]
+		public IActionResult Authentication()
 		{
-            string redirectedUrl = "https://notify-bot.line.me/oauth/authorize";
-            redirectedUrl += "?response_mode=form_post&response_type=code&client_id=QVTkriWSZ7V6lyFAAwj5yQ&redirect_uri=https://localhost:44352/LineNotis/CallBack&scope=notify";
-            redirectedUrl += "&state=111," + DateTime.Now.Ticks;
+			string redirectedUrl = "https://notify-bot.line.me/oauth/authorize";
+			redirectedUrl += "?response_mode=form_post&response_type=code&client_id=QVTkriWSZ7V6lyFAAwj5yQ&redirect_uri=https://localhost:44352/LineNotis/CallBack&scope=notify";
+			redirectedUrl += "&state=111," + DateTime.Now.Ticks;
 
-            return Redirect(redirectedUrl);
+			return Redirect(redirectedUrl);
 		}
 
-        [HttpPost]
-        public async Task<IActionResult> Callback([FromForm]string state, [FromForm] string code)
+		[HttpPost]
+		public async Task<IActionResult> Callback([FromForm] string state, [FromForm] string code)
 		{
-            return null;
+			return null;
 		}
 
-        [HttpPost]
-        public async Task lineNotify(LineNotiViewModel text)
-        {
-            string token = "XGDiguKp1XyTeePNmALSKrrCurwQ0qXacCMMOyg47Ol";
-            string msg = text.ToString();
-            try
-            {
-                var client = new HttpClient();
-                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-                var data = new List<KeyValuePair<string, string>>();
-                data.Add(new KeyValuePair<string, string>("message", text.msg));
-                var httpcontent = new FormUrlEncodedContent(data);
-               var response =  await client.PostAsync("https://notify-api.line.me/api/notify", httpcontent);
-                response.EnsureSuccessStatusCode();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-        }
-    }
+		[HttpPost]
+		public async Task lineNotify(LineNotiViewModel text)
+		{
+			string token = "XGDiguKp1XyTeePNmALSKrrCurwQ0qXacCMMOyg47Ol";
+			string msg = text.ToString();
+			try
+			{
+				var client = new HttpClient();
+				client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+				var data = new List<KeyValuePair<string, string>>();
+				data.Add(new KeyValuePair<string, string>("message", text.msg));
+				var httpcontent = new FormUrlEncodedContent(data);
+				var response = await client.PostAsync("https://notify-api.line.me/api/notify", httpcontent);
+				response.EnsureSuccessStatusCode();
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+		}
+	}
 
 }
