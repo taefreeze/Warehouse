@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -14,26 +15,39 @@ namespace Warehouse.Controllers
 	{
 		public IActionResult Index()
 		{
-			return View();
+			return Authentication();
 		}
-        public void lineNotify(LineNotiViewModel text)
+
+        [HttpPost]
+        public IActionResult Authentication()
+		{
+            string redirectedUrl = "https://notify-bot.line.me/oauth/authorize";
+            redirectedUrl += "?response_mode=form_post&response_type=code&client_id=QVTkriWSZ7V6lyFAAwj5yQ&redirect_uri=https://localhost:44352/LineNotis/CallBack&scope=notify";
+            redirectedUrl += "&state=111," + DateTime.Now.Ticks;
+
+            return Redirect(redirectedUrl);
+		}
+
+        [HttpPost]
+        public async Task<IActionResult> Callback([FromForm]string state, [FromForm] string code)
+		{
+            return null;
+		}
+
+        [HttpPost]
+        public async Task lineNotify(LineNotiViewModel text)
         {
             string token = "XGDiguKp1XyTeePNmALSKrrCurwQ0qXacCMMOyg47Ol";
             string msg = text.ToString();
             try
             {
-                var request = (HttpWebRequest)WebRequest.Create("https://notify-api.line.me/api/notify");
-                var postData = string.Format("message={0}", msg);
-                var data = Encoding.UTF8.GetBytes(postData);
-
-                request.Method = "POST";
-                request.ContentType = "application/x-www-form-urlencoded";
-                request.ContentLength = data.Length;
-                request.Headers.Add("Authorization", "Bearer " + token);
-
-                using (var stream = request.GetRequestStream()) stream.Write(data, 0, data.Length);
-                var response = (HttpWebResponse)request.GetResponse();
-                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                var data = new List<KeyValuePair<string, string>>();
+                data.Add(new KeyValuePair<string, string>("message", text.msg));
+                var httpcontent = new FormUrlEncodedContent(data);
+               var response =  await client.PostAsync("https://notify-api.line.me/api/notify", httpcontent);
+                response.EnsureSuccessStatusCode();
             }
             catch (Exception ex)
             {
@@ -41,4 +55,5 @@ namespace Warehouse.Controllers
             }
         }
     }
+
 }
