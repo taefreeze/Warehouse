@@ -162,7 +162,7 @@ namespace Warehouse.Controllers
         }
         public async Task<IActionResult> Warning()
         {
-            return View(await _context.Products.Where(p => p.Quantity_P > 5).ToListAsync());
+            return View(await _context.Products.Where(p => p.Quantity_P < 5).ToListAsync());
         }
 
         // GET: Products/Details/5

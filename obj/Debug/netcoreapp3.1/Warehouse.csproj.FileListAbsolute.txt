@@ -663,3 +663,4 @@ C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Bill.cshtml.g.cs
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Sale.cshtml.g.cs
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Warning.cshtml.g.cs
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\LineNotis\Index.cshtml.g.cs

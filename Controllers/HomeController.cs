@@ -19,6 +19,7 @@ namespace Warehouse.Controllers
 			_logger = logger;
 		}
 		[Authorize]
+		[HttpGet]
 		public IActionResult Index()
 		{
 			return View();
