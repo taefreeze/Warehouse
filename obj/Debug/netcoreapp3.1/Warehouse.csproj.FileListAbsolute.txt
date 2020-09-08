@@ -664,3 +664,7 @@ C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\View
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Sale.cshtml.g.cs
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Warning.cshtml.g.cs
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\LineNotis\Index.cshtml.g.cs
+D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\LineNotis\Index.cshtml.g.cs
+D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Bill.cshtml.g.cs
+D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Sale.cshtml.g.cs
+D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Warning.cshtml.g.cs
