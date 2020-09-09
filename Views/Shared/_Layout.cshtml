@@ -30,8 +30,8 @@
         <div class="sidebar" data-image="~/assets/img/sidebar-5.jpg">
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="http://www.creative-tim.com" class="simple-text">
-                        WarehouseManagement EF
+                    <a class="simple-text">
+                        WarehouseManagement
                     </a>
                 </div>
                 <ul class="nav">
@@ -77,14 +77,24 @@
                             <p>สินค้าใกล้หมด</p>
                         </a>
                     </li>
+
                 </ul>
+                <form class="navbar-form" asp-controller="Products" asp-action="Index">
+                    <div class="input-group no-border">
+                        <input type="text" value="" class="form-control" placeholder="ค้นหาสินค้า..." name="SearchString">
+                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                            <i class="material-icons">search</i>
+                            <div class="ripple-container"></div>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="main-panel">
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg" color-on-scroll="500">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#pablo">@ViewData["Title"]</a>
+                    <a class="navbar-brand" asp-action="Index">@ViewData["Title"]</a>
                     <button href=""
                             class="navbar-toggler navbar-toggler-right"
                             type="button"
@@ -95,10 +105,11 @@
                         <div class="collapse navbar-collapse justify-content-end" id="navigation">
 
                             <ul class="navbar-nav ml-auto">
+                                
                                 <li class="nav-item">
-                                    
-                                        <partial name="_LoginPartial" />
-                                    
+
+                                    <partial name="_LoginPartial" />
+
                                 </li>
                             </ul>
                         </div>
@@ -107,11 +118,7 @@
                         <span class="navbar-toggler-bar burger-lines"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse justify-content-end"
-                         id="navigation">
-
-
-                    </div>
+                   
                 </div>
             </nav>
             <!-- End Navbar -->
@@ -120,10 +127,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title"></h4>
-
-                                </div>
+                               
                                 <div class="card-body">
                                     @RenderBody()
                                 </div>
