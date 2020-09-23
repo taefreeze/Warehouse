@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using Warehouse.Models.LineNoti;
 
 namespace Warehouse.Controllers
@@ -14,6 +15,10 @@ namespace Warehouse.Controllers
 	public class LineNotisController : Controller
 	{
 		public IActionResult Index()
+		{
+			return View();
+		}
+		public IActionResult Authen()
 		{
 			return Authentication();
 		}
@@ -29,8 +34,12 @@ namespace Warehouse.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Callback([FromForm] string state, [FromForm] string code)
+		public Task<IActionResult> Callback([FromForm] string state, [FromForm] string code)
 		{
+			string redirectedurl = "https://notify-bot.line.me/oauth/token";
+			redirectedurl += "?response_mode=form_post&code=code&grant_type=authorization_code&redirect_uri=https://localhost:44352/LineNotis/CallBack";
+			redirectedurl += "client_id=...&client_secret=...";
+
 			return null;
 		}
 
