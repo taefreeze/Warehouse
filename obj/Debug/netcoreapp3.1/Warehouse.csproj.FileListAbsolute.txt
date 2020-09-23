@@ -343,9 +343,6 @@ D:\Git\Warehouse\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.
 D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.csprojAssemblyReference.cache
 D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.AssemblyInfoInputs.cache
 D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.AssemblyInfo.cs
-D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.csproj.CoreCompileInputs.cache
-D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.MvcApplicationPartsAssemblyInfo.cs
-D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.MvcApplicationPartsAssemblyInfo.cache
 D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.RazorAssemblyInfo.cache
 D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.RazorAssemblyInfo.cs
 D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.TagHelpers.input.cache
@@ -668,3 +665,6 @@ D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\LineNotis\Index.cshtml.g.cs
 D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Bill.cshtml.g.cs
 D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Sale.cshtml.g.cs
 D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Warning.cshtml.g.cs
+D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.csproj.CoreCompileInputs.cache
+D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.MvcApplicationPartsAssemblyInfo.cs
+D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.MvcApplicationPartsAssemblyInfo.cache
