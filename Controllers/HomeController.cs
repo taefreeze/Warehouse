@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Warehouse.Models;
 
-
 namespace Warehouse.Controllers
 {
 	public class HomeController : Controller

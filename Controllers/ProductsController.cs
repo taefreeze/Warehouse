@@ -10,9 +10,6 @@ using Microsoft.EntityFrameworkCore;
 using Warehouse.Data;
 using Warehouse.Models;
 
-
-
-
 namespace Warehouse.Controllers
 {   
     public class ProductQuantitySummary

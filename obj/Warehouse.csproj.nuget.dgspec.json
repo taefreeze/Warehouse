@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git\\Warehouse\\Warehouse.csproj": {}
+    "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\Warehouse.csproj": {}
   },
   "projects": {
-    "D:\\Git\\Warehouse\\Warehouse.csproj": {
+    "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\Warehouse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git\\Warehouse\\Warehouse.csproj",
+        "projectUniqueName": "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\Warehouse.csproj",
         "projectName": "Warehouse",
-        "projectPath": "D:\\Git\\Warehouse\\Warehouse.csproj",
-        "packagesPath": "C:\\Users\\shour\\.nuget\\packages\\",
-        "outputPath": "D:\\Git\\Warehouse\\obj\\",
+        "projectPath": "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\Warehouse.csproj",
+        "packagesPath": "C:\\Users\\TaeFreeze\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\shour\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TaeFreeze\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,7 +40,7 @@
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.8, )"
+              "version": "[3.1.6, )"
             },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
@@ -48,25 +48,25 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.8, )"
+              "version": "[3.1.7, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[3.1.8, )"
+              "version": "[3.1.7, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.8, )"
+              "version": "[3.1.7, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[3.1.8, )"
+              "version": "[3.1.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.8, )"
+              "version": "[3.1.7, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -99,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
