@@ -1,16 +1,13 @@
-﻿@model Warehouse.Models.LineNoti.LineNotiViewModel
-<div class="row">
+﻿<div class="row">
 	<div class="col-md-4">
-		<form asp-action="lineNotify" method="post">
-			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<form asp-action="LineNotify" method="post">
 			<div class="form-group">
-				<label asp-for="msg" class="control-label"></label>
-				<input asp-for="msg" class="form-control" />
-				<span asp-validation-for="msg" class="text-danger"></span>
+				<input type="submit" name="provider" value="LineNotify" class="btn btn-primary" />
 			</div>
-			<div class="form-group">
-				<input type="submit" value="submit" class="btn btn-primary" />
-			</div>
+		</form>
+		<form asp-action="Index" method="post">
+			<input type="text" cols="40" rows="5" name="message" />
+			<input type="submit" value="Send message" />
 		</form>
 	</div>
 </div>

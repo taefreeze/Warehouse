@@ -8,60 +8,66 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using Warehouse.Models.LineNoti;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Warehouse.Controllers
 {
+	[Authorize]
 	public class LineNotisController : Controller
 	{
+		private readonly SignInManager<IdentityUser> _signInManager;
+		private readonly UserManager<IdentityUser> _userManager;
+		private readonly LineNotify _lineNotify;
+		public LineNotisController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, LineNotify lineNotify)
+		{
+			_signInManager = signInManager;
+			_userManager = userManager;
+			_lineNotify = lineNotify;
+		}
 		public IActionResult Index()
 		{
 			return View();
 		}
-		public IActionResult Authen()
-		{
-			return Authentication();
-		}
-
 		[HttpPost]
-		public IActionResult Authentication()
+		public async Task<IActionResult> Index(string message)
 		{
-			string redirectedUrl = "https://notify-bot.line.me/oauth/authorize";
-			redirectedUrl += "?response_mode=form_post&response_type=code&client_id=QVTkriWSZ7V6lyFAAwj5yQ&redirect_uri=https://localhost:44352/LineNotis/CallBack&scope=notify";
-			redirectedUrl += "&state=111," + DateTime.Now.Ticks;
-
-			return Redirect(redirectedUrl);
+			await _lineNotify.SendNotify(message);
+			return RedirectToAction("Index");
 		}
-
+		
 		[HttpPost]
-		public Task<IActionResult> Callback([FromForm] string state, [FromForm] string code)
+		public IActionResult LineNotify(string provider)
 		{
-			string redirectedurl = "https://notify-bot.line.me/oauth/token";
-			redirectedurl += "?response_mode=form_post&code=code&grant_type=authorization_code&redirect_uri=https://localhost:44352/LineNotis/CallBack";
-			redirectedurl += "client_id=...&client_secret=...";
-
-			return null;
+			var redirectUrl = Url.Action("LineNotifyCallback", "Linenotis");
+			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+			var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl, userId);
+			return Challenge(properties,provider);
 		}
-
-		[HttpPost]
-		public async Task lineNotify(LineNotiViewModel text)
+		[HttpGet]
+		public async Task<IActionResult> LineNotifyCallback(string remoteError = null)
 		{
-			string token = "XGDiguKp1XyTeePNmALSKrrCurwQ0qXacCMMOyg47Ol";
-			string msg = text.ToString();
-			try
+			if (!string.IsNullOrEmpty(remoteError))
 			{
-				var client = new HttpClient();
-				client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-				var data = new List<KeyValuePair<string, string>>();
-				data.Add(new KeyValuePair<string, string>("message", text.msg));
-				var httpcontent = new FormUrlEncodedContent(data);
-				var response = await client.PostAsync("https://notify-api.line.me/api/notify", httpcontent);
-				response.EnsureSuccessStatusCode();
+				ModelState.AddModelError(string.Empty, "Error");
+				return View("Index");
 			}
-			catch (Exception ex)
+
+			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+			var info = await _signInManager.GetExternalLoginInfoAsync(userId);
+			if(info == null)
 			{
-				Console.WriteLine(ex.ToString());
+				return RedirectToAction("Index");
 			}
+
+			var user = await _userManager.GetUserAsync(User);
+			await _userManager.RemoveClaimsAsync(user,info.Principal.Claims);
+			foreach(var claim in info.Principal.Claims)
+			{
+				await _userManager.AddClaimAsync(user, claim);
+			}
+
+			return RedirectToAction("Index");
 		}
 	}
 
