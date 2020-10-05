@@ -23,5 +23,6 @@ namespace Warehouse.Data
 			: base(options)
 		{
 		}
+		
 	}
 }

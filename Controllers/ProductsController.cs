@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Warehouse.Data;
 using Warehouse.Models;
-
 namespace Warehouse.Controllers
 {   
     public class ProductQuantitySummary
@@ -151,12 +150,15 @@ namespace Warehouse.Controllers
             return View(result);
         }
         //GET: Products Search
-        public async Task<IActionResult> Index(string searchstring)
+        public async Task<IActionResult> Index(string searchstring,int? page)
         {
             var searchPro = _context.Products.Include(p => p.ProductType).AsQueryable();
             if (!String.IsNullOrEmpty(searchstring))
             {
                 searchPro = searchPro.Where(s => s.Product_Name.Contains(searchstring));
+                var pageNumber = page ?? 1;
+                int pageSize = 25;
+                var onePage = Data.ApplicationDbContext.Equals(pageNumber, pageSize);
             }
             return View(await searchPro.ToListAsync());
         }
@@ -164,7 +166,7 @@ namespace Warehouse.Controllers
         {
             return View(await _context.Products.Where(p => p.Quantity_P < 5).ToListAsync());
         }
-
+        
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {

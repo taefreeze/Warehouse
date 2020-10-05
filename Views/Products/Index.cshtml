@@ -1,16 +1,20 @@
-﻿@model IEnumerable<Warehouse.Models.Product>
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@model IEnumerable<Warehouse.Models.Product>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "รายการสินค้า";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-
-
-</p>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page }),
+    new X.PagedList.Mvc.Core.Common.PagedListRenderOptions
+    {
+        DisplayItemSliceAndTotal = true,
+        ContainerDivClasses = new[] { "navigation" },
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-link" },
+    })
 <table class="table">
     <thead>
         <tr>
@@ -54,3 +58,11 @@
         }
     </tbody>
 </table>
+
+@section Script{
+    <script>
+        $(document).ready(function () {
+            $('ul.pagination > li.disabled > a').addClass('page-link');
+        })
+    </script>
+}

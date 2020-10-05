@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\TaeFreeze\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\TaeFreeze\\.nuget\\packages"
+      "C:\\Users\\shour\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\shour\\.nuget\\packages"
     ]
   }
 }
