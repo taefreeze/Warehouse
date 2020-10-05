@@ -85,15 +85,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg" color-on-scroll="500">
                 <div class="container-fluid">
-                    <form class="navbar-form" asp-controller="Products" asp-action="Index">
-                        <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="ค้นหาสินค้า..." name="SearchString">
-                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                <i class="material-icons">search</i>
-                                <div class="ripple-container"></div>
-                            </button>
-                        </div>
-                    </form>
+                   
                     <a class="navbar-brand">@ViewData["Title"]</a>
                     <button href=""
                             class="navbar-toggler navbar-toggler-right"
@@ -110,7 +102,8 @@
 
                     <div class="collapse navbar-collapse justify-content-end"
                          id="navigation">
-                        <partial name="_LoginPartial" />
+                       
+                            <partial name="_LoginPartial" />
 
 
                     </div>
