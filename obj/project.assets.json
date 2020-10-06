@@ -3415,6 +3415,15 @@
           "lib/netstandard2.0/X.PagedList.dll": {}
         }
       },
+      "X.PagedList.Mvc/8.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net48/X.PagedList.Mvc.dll": {}
+        },
+        "runtime": {
+          "lib/net48/X.PagedList.Mvc.dll": {}
+        }
+      },
       "X.PagedList.Mvc.Core/8.0.7": {
         "type": "package",
         "dependencies": {
@@ -10298,6 +10307,18 @@
         "x.pagedlist.nuspec"
       ]
     },
+    "X.PagedList.Mvc/8.0.7": {
+      "sha512": "Svb2MC/Cy5Q6z2Kj7e6hpWJJOs/R0o12oojyxXDsPat7YnrdYU3Tfs5ntk6SLbDLZNH0flPwNFQ1N+l5tQU/eg==",
+      "type": "package",
+      "path": "x.pagedlist.mvc/8.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net48/X.PagedList.Mvc.dll",
+        "x.pagedlist.mvc.8.0.7.nupkg.sha512",
+        "x.pagedlist.mvc.nuspec"
+      ]
+    },
     "X.PagedList.Mvc.Core/8.0.7": {
       "sha512": "vzF465/mvbC5446vEMdDlZFcKs+PCl3YtX+5iUZTDWqnjGEa369LqR/l9mk+LFhJMOfkdhvzg/raeN2MyxNeOA==",
       "type": "package",
@@ -10335,23 +10356,25 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.4",
       "Npgsql >= 4.1.4",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 3.1.4",
+      "X.PagedList >= 8.0.7",
+      "X.PagedList.Mvc >= 8.0.7",
       "X.PagedList.Mvc.Core >= 8.0.7"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\shour\\.nuget\\packages\\": {}
+    "C:\\Users\\TaeFreeze\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Git\\Warehouse\\Warehouse.csproj",
+      "projectUniqueName": "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\Warehouse.csproj",
       "projectName": "Warehouse",
-      "projectPath": "D:\\Git\\Warehouse\\Warehouse.csproj",
-      "packagesPath": "C:\\Users\\shour\\.nuget\\packages\\",
-      "outputPath": "D:\\Git\\Warehouse\\obj\\",
+      "projectPath": "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\Warehouse.csproj",
+      "packagesPath": "C:\\Users\\TaeFreeze\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\shour\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\TaeFreeze\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10417,6 +10440,14 @@
             "target": "Package",
             "version": "[3.1.4, )"
           },
+          "X.PagedList": {
+            "target": "Package",
+            "version": "[8.0.7, )"
+          },
+          "X.PagedList.Mvc": {
+            "target": "Package",
+            "version": "[8.0.7, )"
+          },
           "X.PagedList.Mvc.Core": {
             "target": "Package",
             "version": "[8.0.7, )"
@@ -10440,8 +10471,20 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'X.PagedList.Mvc 8.0.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "X.PagedList.Mvc",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

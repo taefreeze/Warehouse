@@ -583,9 +583,6 @@ C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\runtimes\w
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.csprojAssemblyReference.cache
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.AssemblyInfoInputs.cache
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.AssemblyInfo.cs
-C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.csproj.CoreCompileInputs.cache
-C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.RazorAssemblyInfo.cache
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.RazorAssemblyInfo.cs
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.TagHelpers.input.cache
@@ -673,3 +670,12 @@ D:\Git\Warehouse\bin\Debug\netcoreapp3.1\X.PagedList.Web.Common.dll
 D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.csproj.CoreCompileInputs.cache
 D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.MvcApplicationPartsAssemblyInfo.cs
 D:\Git\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\X.PagedList.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\X.PagedList.Web.Common.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.csproj.CoreCompileInputs.cache
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.MvcApplicationPartsAssemblyInfo.cache

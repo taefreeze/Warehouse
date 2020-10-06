@@ -1,13 +1,12 @@
-﻿<div class="row">
+﻿@{
+	ViewData["Title"] = "บริการ Line Notify";
+}
+<div class="row">
 	<div class="col-md-4">
 		<form asp-action="LineNotify" method="post">
 			<div class="form-group">
 				<input type="submit" name="provider" value="LineNotify" class="btn btn-primary" />
 			</div>
-		</form>
-		<form asp-action="Index" method="post">
-			<input type="text" cols="40" rows="5" name="message" />
-			<input type="submit" value="Send message" />
 		</form>
 	</div>
 </div>

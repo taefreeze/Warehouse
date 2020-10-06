@@ -9,8 +9,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Warehouse.Data;
 using Warehouse.Models;
+using X.PagedList;
 namespace Warehouse.Controllers
-{   
+{
+    
     public class ProductQuantitySummary
     {
         [DisplayName("รหัสสินค้า")]
@@ -24,10 +26,12 @@ namespace Warehouse.Controllers
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly LineNotify _lineNotify;
 
-        public ProductsController(ApplicationDbContext context)
+        public ProductsController(ApplicationDbContext context, LineNotify lineNotify)
         {
             _context = context;
+            _lineNotify = lineNotify;
         }
         public async Task<IActionResult> Sale()
         {
@@ -73,8 +77,18 @@ namespace Warehouse.Controllers
                     Price = selectedProduct.Price,
                     Total_Price = selectedProduct.Price * model.Amount
                 };
+
                 await _context.Order.AddAsync(newOrder);
                 await _context.SaveChangesAsync();
+                var Id = newOrder.ProductId.ToString();
+                var Amount = newOrder.Quantity_O.ToString();
+                var Price = newOrder.Price.ToString();
+                var sum = selectedProduct.Price * model.Amount;
+                var Date = newOrder.Date.ToString();
+                var name = selectedProduct.Product_Name.ToString();
+                var left = selectedProduct.Quantity_P.ToString();
+				var message = "ขายสินค้า " + name +"  จำนวน " + Amount + " ชิ้น" + "  ราคา  "+ Price + "  ราคารวม  " + sum + "  บาท" + "   เวลา" + Date + " คงเหลือ " + left + "  ชิ้น";
+                await _lineNotify.SendNotify(message);
                 return RedirectToAction("Bill");
             }
             catch (Exception e)
@@ -84,6 +98,7 @@ namespace Warehouse.Controllers
             ViewData["Products"] = await _context.Products.ToListAsync();
             return View();
         }
+
         public async Task<IActionResult> Bill()
         {
             var OrderID = int.Parse(Request.Cookies["OrderID"]);
@@ -150,15 +165,13 @@ namespace Warehouse.Controllers
             return View(result);
         }
         //GET: Products Search
-        public async Task<IActionResult> Index(string searchstring,int? page)
+
+        public async Task<IActionResult> Index(string searchstring)
         {
             var searchPro = _context.Products.Include(p => p.ProductType).AsQueryable();
             if (!String.IsNullOrEmpty(searchstring))
             {
                 searchPro = searchPro.Where(s => s.Product_Name.Contains(searchstring));
-                var pageNumber = page ?? 1;
-                int pageSize = 25;
-                var onePage = Data.ApplicationDbContext.Equals(pageNumber, pageSize);
             }
             return View(await searchPro.ToListAsync());
         }
