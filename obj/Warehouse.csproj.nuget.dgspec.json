@@ -1,21 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\Warehouse.csproj": {}
+    "C:\\projects\\Warehouse\\Warehouse.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\Warehouse.csproj": {
+    "C:\\projects\\Warehouse\\Warehouse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\Warehouse.csproj",
+        "projectUniqueName": "C:\\projects\\Warehouse\\Warehouse.csproj",
         "projectName": "Warehouse",
-        "projectPath": "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\Warehouse.csproj",
-        "packagesPath": "C:\\Users\\TaeFreeze\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TaeFreeze\\Documents\\GitHub\\Warehouse\\obj\\",
+        "projectPath": "C:\\projects\\Warehouse\\Warehouse.csproj",
+        "packagesPath": "C:\\Users\\ooh\\.nuget\\packages\\",
+        "outputPath": "C:\\projects\\Warehouse\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\TaeFreeze\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ooh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -123,7 +128,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
