@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Warehouse.Models;
 
 namespace Warehouse
 {
@@ -19,9 +20,9 @@ namespace Warehouse
 		public const string USERINFO_ENDPOINT = "https://notify-api.line.me/api/status";
 		public const string NOTIFY_ENDPOINT = "https://notify-api.line.me/api/notify";
 		private readonly IHttpContextAccessor _httpContextAccessor;
-		private readonly UserManager<IdentityUser> _userManager;
+		private readonly UserManager<ApplicationUser> _userManager;
 
-		public LineNotify(IHttpContextAccessor httpContextAccessor, UserManager<IdentityUser> userManager)
+		public LineNotify(IHttpContextAccessor httpContextAccessor, UserManager<ApplicationUser> userManager)
 		{
 			_httpContextAccessor = httpContextAccessor;
 			_userManager = userManager;
@@ -42,6 +43,8 @@ namespace Warehouse
 				var response = await client.PostAsync(NOTIFY_ENDPOINT, new FormUrlEncodedContent(data));
 				response.EnsureSuccessStatusCode();
 				return true;
+
+
 				 
 			}
 			catch (Exception)

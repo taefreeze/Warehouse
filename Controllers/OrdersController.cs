@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Warehouse.Data;
 using Warehouse.Models;
+using X.PagedList;
 
 namespace Warehouse.Controllers
 {
@@ -20,10 +21,12 @@ namespace Warehouse.Controllers
         }
 
         // GET: Orders
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
+            int pageSize = 10;
+            int pageNumber = page ?? 1;
             var applicationDbContext = _context.Order.Include(o => o.Product);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await applicationDbContext.ToList().ToPagedListAsync(pageNumber, pageSize));
         }
 
         // GET: Orders/Details/5

@@ -10,6 +10,7 @@ using Warehouse.Models;
 
 namespace Warehouse.Controllers
 {
+	[Authorize]
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
@@ -18,13 +19,12 @@ namespace Warehouse.Controllers
 		{
 			_logger = logger;
 		}
-		[Authorize]
+		[Authorize("Admin")]
 		[HttpGet]
 		public IActionResult Index()
 		{
 			return View();
 		}
-
 		public IActionResult Privacy()
 		{
 			return View();

@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Authentication;
 using System.Net.Http;
 using System.Text.Json;
 using System.Security.Claims;
+using Warehouse.Models;
 
 namespace Warehouse
 {
@@ -35,7 +36,7 @@ namespace Warehouse
 			services.AddDbContext<ApplicationDbContext>(options =>
 				options.UseNpgsql(
 					Configuration.GetConnectionString("DefaultConnection")));
-			services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+			services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
 				.AddEntityFrameworkStores<ApplicationDbContext>();
 
 			services.AddAuthentication().AddOAuth("LineNotify", "Line Notify", options =>

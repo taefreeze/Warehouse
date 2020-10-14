@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Warehouse.Data;
 using Warehouse.Models;
 using X.PagedList;
+using PagedList;
 namespace Warehouse.Controllers
 {
     
@@ -80,6 +81,7 @@ namespace Warehouse.Controllers
 
                 await _context.Order.AddAsync(newOrder);
                 await _context.SaveChangesAsync();
+
                 var Id = newOrder.ProductId.ToString();
                 var Amount = newOrder.Quantity_O.ToString();
                 var Price = newOrder.Price.ToString();
@@ -87,9 +89,18 @@ namespace Warehouse.Controllers
                 var Date = newOrder.Date.ToString();
                 var name = selectedProduct.Product_Name.ToString();
                 var left = selectedProduct.Quantity_P.ToString();
-				var message = "ขายสินค้า " + name +"  จำนวน " + Amount + " ชิ้น" + "  ราคา  "+ Price + "  ราคารวม  " + sum + "  บาท" + "   เวลา" + Date + " คงเหลือ " + left + "  ชิ้น";
-                await _lineNotify.SendNotify(message);
-                return RedirectToAction("Bill");
+                var leftint = selectedProduct.Quantity_P;
+                if(leftint < 5)
+				{
+                    var message = "สินค้า " + name  + "ใกล้หมดแล้ว!" + " คงเหลือ " + left + "  ชิ้น!";
+                    await _lineNotify.SendNotify(message);
+                    return RedirectToAction("Bill");
+                }
+				else
+                {
+                    return RedirectToAction("Bill");
+                }                
+                
             }
             catch (Exception e)
             {
@@ -165,16 +176,19 @@ namespace Warehouse.Controllers
             return View(result);
         }
         //GET: Products Search
-
-        public async Task<IActionResult> Index(string searchstring)
+        public async Task<IActionResult> Index(string searchstring, int? page)
         {
+            ViewBag.CurrentFilter = searchstring;
             var searchPro = _context.Products.Include(p => p.ProductType).AsQueryable();
             if (!String.IsNullOrEmpty(searchstring))
             {
-                searchPro = searchPro.Where(s => s.Product_Name.Contains(searchstring));
+                searchPro = searchPro.Where(s => s.Product_Name.Contains(searchstring) || s.ProductType.Name.Contains(searchstring));
             }
-            return View(await searchPro.ToListAsync());
+            int pageSize = 10;
+            int pageNumber = page ?? 1;
+            return View(await searchPro.ToList().ToPagedListAsync(pageNumber, pageSize));
         }
+
         public async Task<IActionResult> Warning()
         {
             return View(await _context.Products.Where(p => p.Quantity_P < 5).ToListAsync());
@@ -207,8 +221,6 @@ namespace Warehouse.Controllers
         }
 
         // POST: Products/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductId,Product_Name,TypeId,Price,Quantity_P")] Product product)

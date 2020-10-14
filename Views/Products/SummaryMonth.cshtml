@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Warehouse.Models.Order>
+@using Warehouse.Controllers
+
+@{
+	ViewData["Title"] = "รายการขาย";
+	List<ProductQuantitySummary> summariesM = (List<ProductQuantitySummary>)ViewData["SummaryM"];
+	var myMonths = (List<SelectListItem>)ViewData["myMonths"];
+}
+<div class="row">
+	<form method="post" asp-action="SummaryMonth">
+		<select name="month" asp-items="myMonths"class="form-control"></select>
+		<input type="submit" value="สรุป" class="btn btn-success" />
+	</form>
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => summariesM[0].ProductId)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => summariesM[0].Product_Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => summariesM[0].Quantity)
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in summariesM)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.ProductId)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Product_Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Quantity)
+				</td>
+			</tr>
+		}
+		<tr>
+			<td colspan="3" class="text-right">
+				@ViewData["TotalQuantitiesM"]
+			</td>
+		</tr>
+	</tbody>
+</table>
+

@@ -676,6 +676,17 @@ C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\X.PagedLis
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\X.PagedList.Web.Common.dll
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\PagedList.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\PagedList.Mvc.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.csproj.CoreCompileInputs.cache
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Summary.cshtml.g.cs
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\SummaryMonth.cshtml.g.cs
