@@ -8,17 +8,17 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Warehouse.Data
 {
-	public class ApplicationDbContext : IdentityDbContext
-	{
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    {
         public DbSet<Product> Products { get; set; }
-		public DbSet<Order> Order { get; set; }
-		protected override void OnModelCreating(ModelBuilder builder)
-		{
-			base.OnModelCreating(builder);
+        public DbSet<Order> Order { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
 
-			builder.Entity<ProductType>().HasKey(t => t.TypeId);
-			builder.Entity<Product>().HasKey(p => p.ProductId);
-			builder.Entity<Product>().HasOne(p => p.ProductType).WithMany(t => t.Products).HasForeignKey(p => p.TypeId);
+            builder.Entity<ProductType>().HasKey(t => t.TypeId);
+            builder.Entity<Product>().HasKey(p => p.ProductId);
+            builder.Entity<Product>().HasOne(p => p.ProductType).WithMany(t => t.Products).HasForeignKey(p => p.TypeId);
             builder.Entity<IdentityRole>().HasData(new IdentityRole[]
             {
                 new IdentityRole("User"),
@@ -28,9 +28,9 @@ namespace Warehouse.Data
 
         }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-			: base(options)
-		{
-		}
-		
-	}
+            : base(options)
+        {
+        }
+
+    }
 }
