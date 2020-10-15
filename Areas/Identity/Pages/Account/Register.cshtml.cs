@@ -23,20 +23,21 @@ namespace Warehouse.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
-        // private readonly IEmailSender _emailSender;
+		//private readonly IEmailSender _emailSender;
 
-        public RegisterModel(
+		public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger
-            // IEmailSender emailSender
-            )
+
+			 //IEmailSender emailSender
+			)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
-            // _emailSender = emailSender;
-        }
+			//_emailSender = emailSender;
+		}
 
         [BindProperty]
         public InputModel Input { get; set; }

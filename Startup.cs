@@ -38,7 +38,8 @@ namespace Warehouse
                 options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
             services.ConfigureApplicationCookie(options =>
             {
@@ -100,7 +101,7 @@ namespace Warehouse
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider service)
         {
             if (env.IsDevelopment())
             {
@@ -113,6 +114,7 @@ namespace Warehouse
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            SeedData(service).Wait();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -128,6 +130,21 @@ namespace Warehouse
                     pattern: "{controller=Products}/{action=Warning}/{id?}");
                 endpoints.MapRazorPages();
             });
+        }
+
+        private async Task SeedData(IServiceProvider service)
+		{
+            var roleManager = service.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = service.GetRequiredService<UserManager<ApplicationUser>>();
+            var dbContext = service.GetRequiredService<ApplicationDbContext>();
+            if (!await roleManager.RoleExistsAsync("User"))
+			{
+                await roleManager.CreateAsync(new IdentityRole("User"));
+			}
+            if (!await roleManager.RoleExistsAsync("Staff"))
+            {
+                await roleManager.CreateAsync(new IdentityRole("Staff"));
+            }
         }
     }
 }

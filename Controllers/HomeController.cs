@@ -19,7 +19,6 @@ namespace Warehouse.Controllers
 		{
 			_logger = logger;
 		}
-		[Authorize("Admin")]
 		[HttpGet]
 		public IActionResult Index()
 		{

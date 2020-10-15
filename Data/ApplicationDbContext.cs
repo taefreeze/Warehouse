@@ -21,8 +21,8 @@ namespace Warehouse.Data
             builder.Entity<Product>().HasOne(p => p.ProductType).WithMany(t => t.Products).HasForeignKey(p => p.TypeId);
             builder.Entity<IdentityRole>().HasData(new IdentityRole[]
             {
-                new IdentityRole("User"),
-                new IdentityRole("Staff")
+                new IdentityRole("USER"),
+                new IdentityRole("STAFF")
             });
 
 
