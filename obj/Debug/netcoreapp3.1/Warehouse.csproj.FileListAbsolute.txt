@@ -952,3 +952,4 @@ C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\View
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Manage.cshtml.g.cs
 C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ListUsers.cshtml.g.cs
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\bin\Debug\netcoreapp3.1\appsettings.Production.json

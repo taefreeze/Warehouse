@@ -18,6 +18,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Security.Claims;
 using Warehouse.Models;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace Warehouse
 {
@@ -116,6 +117,10 @@ namespace Warehouse
 			}
 			SeedData(service).Wait();
 			app.UseHttpsRedirection();
+			app.UseForwardedHeaders(new ForwardedHeadersOptions
+			{
+				ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+			});
 			app.UseStaticFiles();
 
 			app.UseRouting();
