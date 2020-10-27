@@ -23,7 +23,7 @@ namespace Warehouse.Controllers
         [DisplayName("จำนวนที่ขายได้")]
         public int Quantity { get; set; }
     }
-    [Authorize]
+    [Authorize(Roles = "Staff")]
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -176,7 +176,20 @@ namespace Warehouse.Controllers
             return View(result);
         }
         //GET: Products Search
+        [Authorize(Roles = "User,Staff")]
         public async Task<IActionResult> Index(string searchstring, int? page)
+        {
+            ViewBag.CurrentFilter = searchstring;
+            var searchPro = _context.Products.Include(p => p.ProductType).AsQueryable();
+            if (!String.IsNullOrEmpty(searchstring))
+            {
+                searchPro = searchPro.Where(s => s.Product_Name.Contains(searchstring) || s.ProductType.Name.Contains(searchstring));
+            }
+            int pageSize = 10;
+            int pageNumber = page ?? 1;
+            return View(await searchPro.ToList().ToPagedListAsync(pageNumber, pageSize));
+        }
+        public async Task<IActionResult> Manage(string searchstring, int? page)
         {
             ViewBag.CurrentFilter = searchstring;
             var searchPro = _context.Products.Include(p => p.ProductType).AsQueryable();

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ApplicationUser>
+
+@{
+	ViewBag.Title = "สมาชิกทั้งหมด";
+}
+
+
+
+@if (Model.Any())
+{
+	foreach (var user in Model)
+	{
+		<div class="card mb-3">
+			<div class="card-header">
+				User Id : @user.Id
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">@user.UserName</h5>
+			</div>
+			<div class="card-footer">
+				<form method="post">
+					<input type="submit" asp-action="Give" asp-route-id="@user.Id" class="form-control" value="ให้สิทธิ">
+				</form>
+			</div>
+		</div>
+	}
+}

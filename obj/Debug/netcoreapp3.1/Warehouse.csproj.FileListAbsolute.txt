@@ -948,3 +948,7 @@ C:\projects\Warehouse\obj\Debug\netcoreapp3.1\staticwebassets\Warehouse.StaticWe
 C:\projects\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.dll
 C:\projects\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.pdb
 C:\projects\Warehouse\obj\Debug\netcoreapp3.1\Warehouse.genruntimeconfig.cache
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditRole.cshtml.g.cs
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Products\Manage.cshtml.g.cs
+C:\Users\TaeFreeze\Documents\GitHub\Warehouse\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ListUsers.cshtml.g.cs
