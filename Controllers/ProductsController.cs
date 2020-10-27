@@ -11,6 +11,7 @@ using Warehouse.Data;
 using Warehouse.Models;
 using X.PagedList;
 using PagedList;
+
 namespace Warehouse.Controllers
 {
     
@@ -176,7 +177,7 @@ namespace Warehouse.Controllers
             return View(result);
         }
         //GET: Products Search
-        [Authorize(Roles = "User,Staff")]
+        [AllowAnonymous]
         public async Task<IActionResult> Index(string searchstring, int? page)
         {
             ViewBag.CurrentFilter = searchstring;
@@ -201,7 +202,7 @@ namespace Warehouse.Controllers
             int pageNumber = page ?? 1;
             return View(await searchPro.ToList().ToPagedListAsync(pageNumber, pageSize));
         }
-
+        [AllowAnonymous]
         public async Task<IActionResult> Warning()
         {
             return View(await _context.Products.Where(p => p.Quantity_P < 5).ToListAsync());
