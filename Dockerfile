@@ -1,6 +1,5 @@
-FROM utarn/aspnetcore3.1-centos8:latest AS builder 
-COPY Warehouse.csproj Warehouse.csproj
-RUN dotnet restore Warehouse.csproj Warehouse.csproj
+ROM utarn/aspnetcore3.1-centos8:latest AS builder
+WORKDIR /Warehouse
 COPY . .
 RUN dotnet publish --output /app --configuration Release
 
