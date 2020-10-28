@@ -1,4 +1,4 @@
-ROM utarn/aspnetcore3.1-centos8:latest AS builder
+FROM utarn/aspnetcore3.1-centos8:latest AS builder
 WORKDIR /Warehouse
 COPY . .
 RUN dotnet publish --output /app --configuration Release
