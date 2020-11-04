@@ -19,6 +19,7 @@ using System.Text.Json;
 using System.Security.Claims;
 using Warehouse.Models;
 using Microsoft.AspNetCore.HttpOverrides;
+using System.Net;
 
 namespace Warehouse
 {
@@ -96,6 +97,10 @@ namespace Warehouse
 					 }
 				 };
 			 });
+			services.Configure<ForwardedHeadersOptions>(options =>
+			{
+				options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
+			});
 			services.AddTransient<LineNotify>();
 			services.AddControllersWithViews();
 			services.AddRazorPages();
@@ -104,6 +109,17 @@ namespace Warehouse
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider service)
 		{
+			app.UseForwardedHeaders(new ForwardedHeadersOptions
+			{
+				ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+			});
+
+			app.Use((context, next) =>
+			{
+				context.Request.Scheme = "https";
+				return next();
+			});
+
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
@@ -117,10 +133,6 @@ namespace Warehouse
 			}
 			SeedData(service).Wait();
 			app.UseHttpsRedirection();
-			app.UseForwardedHeaders(new ForwardedHeadersOptions
-			{
-				ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-			});
 			app.UseStaticFiles();
 
 			app.UseRouting();
