@@ -57,7 +57,7 @@ systemctl enable docker
 
 จากนั้นสร้าง file database
 ```
-mkdir
+mkdir database
 
 chown 1001.1001 database
 ```
