@@ -38,6 +38,8 @@ yum install firewalld
 
 systemctl start firewalld
 
+systemctl enable firewalld
+
 firewall-cmd --zone=public --add-masquerade --permanent
 
 firewall-cmd --zone=public --add-service=http
