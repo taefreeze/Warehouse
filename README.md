@@ -116,7 +116,7 @@ yum install epel-release
 
 yum config-manager --set-enabled PowerTools
 
-yum install puthon3-certbot-nginx
+yum install python3-certbot-nginx
 
 yum search certbot
 
